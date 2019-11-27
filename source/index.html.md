@@ -1,11 +1,9 @@
 ---
-title: Suggestic API Reference
+title: Suggestic Partners API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
-  - ruby
   - python
-  - javascript
 
 toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
@@ -14,85 +12,102 @@ toc_footers:
 includes:
   - errors
 
-search: true
+search: false
 ---
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Welcome to the Suggestic Partners API You can use our Partners API to access Suggestic API endpoints, which can get or create information from or databases.
 
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+<aside class="success">
+The Suggestic Partner API is only available under our Partnership Programs.
+To get a production access to the API <a href='mailto:hello@suggestic.com'>Please contact us.</a>
+</aside>
 
-This example API documentation page was created with [Slate](https://github.com/lord/slate). Feel free to edit it and use it as a base for your own API's documentation.
+<aside class="notice">
+All examples documented here can be tested on or staging enviroment <code>https://stg.api.suggestic.com</code>.
+You shoul replace the url to <code>https://api.suggestic.com</code> when ready for production.
+</aside>
 
 # Authentication
 
-> To authorize, use this code:
+Suggestic uses API keys to allow access to the API.
 
-```ruby
-require 'kittn'
+Suggestic expects for the API key to be included in all API requests to the server in a header that looks like the following:
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
-
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
+`Authorization: Token 2444bb179390b9dcfadb7f2555682074f885c805`
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+You must replace <code>Token {API-KEY}</code> with your personal API key.
 </aside>
 
-# Kittens
-
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
+# Users
+## Create new User
 ```python
-import kittn
+import requests
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
+user = {
+  "name": "Pedro",
+  "email": "pedro@corp.com"
+}
+response = requests.post(
+    "https://stg.api.suggestic.com/users",
+    headers={"Authorization": "Token 2444bb179390b9dcfadb7f2555682074f885c805"},
+    data=user
+)
+print(response.json())
 ```
 
 ```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
+curl "https://stg.api.suggestic.com/users" \
+    -H "Authorization: Token 2444bb179390b9dcfadb7f2555682074f885c805" \
+    -d 'email=pedro@corp.com' \
+    -d 'name=Pedrro'
 ```
 
-```javascript
-const kittn = require('kittn');
+> The above command returns JSON structured like this:
 
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
+```json
+{
+  "name": [
+    "Pedro"
+  ],
+  "email": [
+    "pedro@corp.com"
+  ],
+  "extra_data": "{}"
+}
+```
+This endpoint creates a new user in to Suggestic
+
+### HTTP Request
+
+`POST https://stg.api.suggestic.com/users`
+
+### Arguments
+
+Parameter | Type | Required | Description
+--------- | ----------- | ----------- | -----------
+`name` | string | required | The user Name.
+`email` | string | required | The user Email.
+`program` | string | required | rogram ID, this will be the user initial program.
+`restrictions` | list | optional | Restriction ID's, user restrictions.
+`extra_data` | json string | optional | Extra user related meta data.
+
+## Get All Users
+
+```python
+import requests
+
+response = requests.get(
+    "https://stg.api.suggestic.com/users",
+    headers={"Authorization": "Token 2444bb179390b9dcfadb7f2555682074f885c805 "}
+)
+```
+
+```shell
+curl "https://stg.api.suggestic.com/users" \
+    -H "Authorization: Token 2444bb179390b9dcfadb7f2555682074f885c805"
 ```
 
 > The above command returns JSON structured like this:
@@ -101,52 +116,21 @@ let kittens = api.kittens.get();
 [
   {
     "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
   }
 ]
 ```
 
-This endpoint retrieves all kittens.
+This endpoint retrieves all users from my organization.
 
 ### HTTP Request
 
-`GET http://example.com/api/kittens`
+`GET https://stg.api.suggestic.com/users`
 
-### Query Parameters
+## Get a Specific User
 
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
 
 ```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
+import requests
 ```
 
 ```shell
@@ -154,86 +138,123 @@ curl "http://example.com/api/kittens/2"
   -H "Authorization: meowmeowmeow"
 ```
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
   "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
 }
 ```
 
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+This endpoint retrieves a specific user.
 
 ### HTTP Request
 
-`GET http://example.com/kittens/<ID>`
+`GET https://stg.api.suggestic.com/users/<ID>`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to retrieve
+ID | The ID of the user to retrive
 
-## Delete a Specific Kitten
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
+# Programs
+## Get all Programs
 
 ```python
-import kittn
+import requests
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
+response = requests.get(
+    "https://stg.api.suggestic.com/programs",
+    headers={"Authorization": "Token 2444bb179390b9dcfadb7f2555682074f885c805"}
+)
 ```
 
 ```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
+curl "https://stg.api.suggestic.com/programs" \
+    -H "Authorization: Token 2444bb179390b9dcfadb7f2555682074f885c805"
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
+[
+  {
+    "id": 1,
+  }
+]
 ```
 
-This endpoint deletes a specific kitten.
+This endpoint retrieves all programs.
 
 ### HTTP Request
 
-`DELETE http://example.com/kittens/<ID>`
+`GET https://stg.api.suggestic.com/programs`
 
-### URL Parameters
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
+## Get a Specific Program
 
+```python
+import requests
+
+response = requests.get(
+    "https://stg.api.suggestic.com/programs/1",
+    headers={"Authorization": "Token 2444bb179390b9dcfadb7f2555682074f885c805"}
+)
+```
+
+```shell
+curl "https://stg.api.suggestic.com/programs/1" \
+    -H "Authorization: Token 2444bb179390b9dcfadb7f2555682074f885c805"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 1,
+  }
+]
+```
+
+This endpoint retrives a especific program
+
+### HTTP Request
+
+`GET https://stg.api.suggestic.com/programs/{ID}`
+
+# Restriction
+## Get all Restrictions
+
+```python
+import requests
+
+response = requests.get(
+    "https://stg.api.suggestic.com/restrictions",
+    headers={"Authorization": "Token 2444bb179390b9dcfadb7f2555682074f885c805"}
+)
+```
+
+```shell
+curl "https://stg.api.suggestic.com/restrictions" \
+    -H "Authorization: Token 2444bb179390b9dcfadb7f2555682074f885c805"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 1,
+  }
+]
+```
+
+This endpoint retrieves all available restrictions.
+
+### HTTP Request
+
+`GET https://stg.api.suggestic.com/restrictions`

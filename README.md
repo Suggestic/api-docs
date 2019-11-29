@@ -21,3 +21,8 @@ You're going to need:
 bundle install
 bundle exec middleman server
 ```
+
+### Deployment
+```
+./deploy.sh
+```

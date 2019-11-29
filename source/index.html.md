@@ -6,7 +6,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - python
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
+  - <a href='mailto:partners@suggestic.com'>Contact us for a Developer Key</a>
   - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
 
 includes:
@@ -17,11 +17,11 @@ search: true
 
 # Introduction
 
-Welcome to the Suggestic Partners API You can use our Partners API to access Suggestic API endpoints, which can get or create information from or databases.
+Welcome to Suggestic's Personalized Nutrition Platform. You can use our APIs and services to access out different modules and data.
 
 <aside class="success">
-The Suggestic Partner API is only available under our Partnership Programs.
-To get a production access to the API <a href='mailto:hello@suggestic.com'>Please contact us.</a>
+The Suggestic Partner API is only available as part of our Partnership Program.
+To get production access to the API <a href='mailto:partners@suggestic.com'>Please contact us.</a>
 </aside>
 
 <aside class="notice">

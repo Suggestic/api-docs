@@ -113,11 +113,20 @@ curl "https://stg.api.suggestic.com/users" \
 > The above command returns JSON structured like this:
 
 ```json
-[
-  {
-    "id": 1,
-  }
-]
+{
+    "count": 1,
+    "next": null,
+    "previous": null,
+    "results": [
+        {
+            "user_id": "d6044ee8-b372-45e0-b9dc-d21aad4fface",
+            "email": "pedro@corp.com",
+            "name": "Pedro",
+            "restrictions": [],
+            "extra_data": "{}"
+        }
+    ]
+}
 ```
 
 This endpoint retrieves all users from my organization.

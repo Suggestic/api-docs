@@ -91,7 +91,7 @@ Parameter | Type | Required | Description
 `name` | string | required | The user Name.
 `email` | string | required | The user Email.
 `program` | string | required | rogram ID, this will be the user initial program.
-`restrictions` | list | optional | Restriction ID's, user restrictions.
+`restrictions` | list | optional | Restriction slugs, user restrictions.
 `extra_data` | json string | optional | Extra user related meta data.
 
 ## Get All Users

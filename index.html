@@ -404,7 +404,11 @@ You must replace <code>Token {API-KEY}</code> with your personal API key.
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d6044ee8-b372-45e0-b9dc-d21aad4fface"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pedro@corp.com"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedro"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"restrictions"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"extra_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{}"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves a specific user.</p>
@@ -491,11 +495,25 @@ The above command returns JSON structured like this: </p>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01bbd541-939b-4b85-8d90-48ff0b02d0ee"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"is_premium"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wheat-belly-10-day-grain-detox"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"order"</span><span class="p">:</span><span class="w"> </span><span class="mi">2200</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wheat Belly 10-Day Grain Detox"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dr. William Davis"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description_long"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Wheat Belly 10-Day Grain Detox is unlike all other “detox” programs before it. It does not involve “cleansing” your body with various juices or a magical concoction of supplements purported to remove body “toxins,” nor a schedule of daily enemas that complicate your meeting schedule. It is a detoxification process from wheat and grains, a detoxification in the truest sense of the term. </span><span class="se">\r\n\r\n</span><span class="s2">This 10-Day Grain Detox distills all the wisdom of the original Wheat Belly books,  incorporating the most insightful, cutting-edge and effective strategies, and sharing them with you so that you can begin your path to weight and health success...in a short 10 days. </span><span class="se">\r\n\r\n</span><span class="s2">The Three Steps of Grain Detox are:</span><span class="se">\r\n</span><span class="s2">1: Eliminate all grains</span><span class="se">\r\n</span><span class="s2">-Start with a grain-free kitchen</span><span class="se">\r\n</span><span class="s2">-Eliminate hidden sources by reading labels</span><span class="se">\r\n</span><span class="s2">-Go grain-free shopping </span><span class="se">\r\n\r\n</span><span class="s2">2: Choose real, single-ingredient foods</span><span class="se">\r\n\r\n</span><span class="s2">3: Manage carbohydrates"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description_short"</span><span class="p">:</span><span class="w"> </span><span class="s2">"With the Wheat Belly 10-Day Grain Detox you will get great health benefits such as: weight loss, drops in blood sugar, reduction in blood pressure, improvement in skin conditions, better gastrointestinal health, among others."</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"books"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.amazon.com/Wheat-Belly-10-Day-Reprogram-Amazing"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10-Day Grain Detox"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://sg-data.storage.googleapis.com/images_bucket/Cover.png"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cover"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://sg-data.storage.googleapis.com/images_bucket/WheatBelly.png"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"background_image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://sg-data.storage.googleapis.com:443/program/wheat-belly-10-day-grain-detox.png"</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrives a especific program</p>
 <h3 id='http-request-5'>HTTP Request</h3>
@@ -512,11 +530,37 @@ The above command returns JSON structured like this: </p>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"next"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"previous"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Avoid almonds"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"slugname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"avoid-almonds"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Avoid anchovies"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"slugname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"avoid-anchovies"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Avoid apple"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"slugname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"avoid-apple"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Avoid artichoke"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"slugname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"avoid-artichoke"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Avoid asparagus"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"slugname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"avoid-asparagus"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Avoid avocado"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"slugname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"avoid-avocado"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves all available restrictions.</p>
 <h3 id='http-request-6'>HTTP Request</h3>

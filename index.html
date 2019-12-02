@@ -434,12 +434,51 @@ You must replace <code>Token {API-KEY}</code> with your personal API key.
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"next"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"previous"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01bbd541-939b-4b85-8d90-48ff0b02d0ee"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"is_premium"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wheat-belly-10-day-grain-detox"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"order"</span><span class="p">:</span><span class="w"> </span><span class="mi">2200</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wheat Belly 10-Day Grain Detox"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dr. William Davis"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description_long"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Wheat Belly 10-Day Grain Detox is unlike all other “detox” programs before it. It does not involve “cleansing” your body with various juices or a magical concoction of supplements purported to remove body “toxins,” nor a schedule of daily enemas that complicate your meeting schedule. It is a detoxification process from wheat and grains, a detoxification in the truest sense of the term. </span><span class="se">\r\n\r\n</span><span class="s2">This 10-Day Grain Detox distills all the wisdom of the original Wheat Belly books,  incorporating the most insightful, cutting-edge and effective strategies, and sharing them with you so that you can begin your path to weight and health success...in a short 10 days. </span><span class="se">\r\n\r\n</span><span class="s2">The Three Steps of Grain Detox are:</span><span class="se">\r\n</span><span class="s2">1: Eliminate all grains</span><span class="se">\r\n</span><span class="s2">-Start with a grain-free kitchen</span><span class="se">\r\n</span><span class="s2">-Eliminate hidden sources by reading labels</span><span class="se">\r\n</span><span class="s2">-Go grain-free shopping </span><span class="se">\r\n\r\n</span><span class="s2">2: Choose real, single-ingredient foods</span><span class="se">\r\n\r\n</span><span class="s2">3: Manage carbohydrates"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description_short"</span><span class="p">:</span><span class="w"> </span><span class="s2">"With the Wheat Belly 10-Day Grain Detox you will get great health benefits such as: weight loss, drops in blood sugar, reduction in blood pressure, improvement in skin conditions, better gastrointestinal health, among others."</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"books"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.amazon.com/Wheat-Belly-10-Day-Reprogram-Amazing"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10-Day Grain Detox"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://sg-data.storage.googleapis.com/images_bucket/Cover.png"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"cover"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://sg-data.storage.googleapis.com/images_bucket/WheatBelly.png"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"background_image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://sg-data.storage.googleapis.com:443/program/wheat-belly-10-day-grain-detox.png"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"074c7b86-057c-4d47-8f4b-7f4339c8d1f4"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"is_premium"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"healing-foods-28-day-reset"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"order"</span><span class="p">:</span><span class="w"> </span><span class="mi">2100</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Healing Foods 28-Day Reset"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dr. Michael Murray"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description_long"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Healing Foods 28-Day Reset brings together healing forces that certain foods and their components exert on our health and well-being to provide a healthy eating and weight-loss program. This program incorporates the best of the most healthful diets in the world. </span><span class="se">\r\n\r\n</span><span class="s2">One of the goals of this program, is to instill the importance of eating a wider spectrum of health-promoting foods. Healing foods 28-Day reset is meant to help you appreciate how eating a wide variety of foods can improve your health and well-being. People who include a variety of different foods in their diets have a lower rate of obesity than those who consume the same foods day in and day out.  </span><span class="se">\r\n</span><span class="s2">Open your eyes and mouth, and take advantage of the incredible bounty of foods that is available to you!"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description_short"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Live Longer and Healthier—and Lose Weight— with the Healing Foods 28-Day reset"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"books"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://sg-data.storage.googleapis.com/images_bucket/Small_Murray.png"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"cover"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://sg-data.storage.googleapis.com/images_bucket/Back_Murray.png"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"background_image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://sg-data.storage.googleapis.com:443/program/healing-foods-28-day-reset.png"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
+<p><aside class="notice">
+This example has shortened for sample reasons
+&lt;/aside</p>
+
 <p>This endpoint retrieves all programs.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET https://stg.api.suggestic.com/programs</code></p>

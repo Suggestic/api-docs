@@ -72,9 +72,7 @@ curl "https://stg.api.suggestic.com/users" \
   "name": [
     "Pedro"
   ],
-  "email": [
-    "pedro@corp.com"
-  ],
+  "email": "pedro@corp.com",
   "extra_data": "{}"
 }
 ```
@@ -143,8 +141,8 @@ import requests
 ```
 
 ```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
+curl "https://stg.api.suggestic.com/users/d6044ee8-b372-45e0-b9dc-d21aad4fface" \
+  -H "Authorization: Token 2444bb179390b9dcfadb7f2555682074f885c805"
 ```
 
 
@@ -310,7 +308,7 @@ curl "https://stg.api.suggestic.com/restrictions" \
 
 ```json
 {
-  "count": 123,
+  "count": 6,
   "next": null,
   "previous": null,
   "results": [

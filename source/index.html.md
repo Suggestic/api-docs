@@ -170,6 +170,54 @@ Parameter | Description
 --------- | -----------
 ID | The ID of the user to retrive
 
+## Update user
+```python
+import requests
+
+user = {
+  "restrictions": ["avoid-almonds"]
+}
+response = requests.post(
+    "https://stg.api.suggestic.com/users/d6044ee8-b372-45e0-b9dc-d21aad4fface",
+    headers={"Authorization": "Token 2444bb179390b9dcfadb7f2555682074f885c805"},
+    data=user
+)
+print(response.json())
+```
+
+```shell
+curl "https://stg.api.suggestic.com/users/d6044ee8-b372-45e0-b9dc-d21aad4fface" \
+    -H "Authorization: Token 2444bb179390b9dcfadb7f2555682074f885c805" \
+    -d 'email=pedro@corp.com' \
+    -d 'name=Pedrro'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "name": "Pedro",
+  "email": "pedro@corp.com",
+  "extra_data": "{}",
+  "restrictions": ["avoid-almonds"]
+}
+```
+This endpoint updates user properties, like adding removing restrictions, updating user program etc.
+
+### HTTP Request
+
+`POST https://stg.api.suggestic.com/users/{user-id}`
+
+### Arguments
+
+Parameter | Type | Required | Description
+--------- | ----------- | ----------- | -----------
+`name` | string | required | The user Name.
+`email` | string | required | The user Email.
+`program` | string | required | rogram ID, this will be the user initial program.
+`restrictions` | list | optional | Restriction slugs, user restrictions.
+`extra_data` | json string | optional | Extra user related meta data.
+
 
 # Programs
 ## Get all Programs

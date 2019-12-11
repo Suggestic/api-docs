@@ -319,6 +319,7 @@ You must replace <code>Token {API-KEY}</code> with your personal API key.
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedro"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pedro@corp.com"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"restrictions"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
   </span><span class="s2">"extra_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{}"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -369,7 +370,7 @@ You must replace <code>Token {API-KEY}</code> with your personal API key.
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
     <span class="s">"https://stg.api.suggestic.com/users"</span><span class="p">,</span>
-    <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"Token 2444bb179390b9dcfadb7f2555682074f885c805 "</span><span class="p">}</span>
+    <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"Token 2444bb179390b9dcfadb7f2555682074f885c805"</span><span class="p">}</span>
 <span class="p">)</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://stg.api.suggestic.com/users"</span> <span class="se">\</span>
     -H <span class="s2">"Authorization: Token 2444bb179390b9dcfadb7f2555682074f885c805"</span>
@@ -396,6 +397,11 @@ You must replace <code>Token {API-KEY}</code> with your personal API key.
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET https://stg.api.suggestic.com/users</code></p>
 <h2 id='get-a-specific-user'>Get a Specific User</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="s">"https://stg.api.suggestic.com/users/d6044ee8-b372-45e0-b9dc-d21aad4fface"</span><span class="p">,</span>
+    <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"Token 2444bb179390b9dcfadb7f2555682074f885c805"</span><span class="p">},</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://stg.api.suggestic.com/users/d6044ee8-b372-45e0-b9dc-d21aad4fface"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: Token 2444bb179390b9dcfadb7f2555682074f885c805"</span>
 </code></pre>
@@ -426,11 +432,10 @@ You must replace <code>Token {API-KEY}</code> with your personal API key.
 </tr>
 </tbody></table>
 <h2 id='update-user'>Update user</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
 <span class="n">user</span> <span class="o">=</span> <span class="p">{</span>
   <span class="s">"restrictions"</span><span class="p">:</span> <span class="p">[</span><span class="s">"avoid-almonds"</span><span class="p">]</span>
 <span class="p">}</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span>
     <span class="s">"https://stg.api.suggestic.com/users/d6044ee8-b372-45e0-b9dc-d21aad4fface"</span><span class="p">,</span>
     <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"Token 2444bb179390b9dcfadb7f2555682074f885c805"</span><span class="p">},</span>
     <span class="n">data</span><span class="o">=</span><span class="n">user</span>
@@ -495,7 +500,6 @@ You must replace <code>Token {API-KEY}</code> with your personal API key.
 </tr>
 </tbody></table>
 <h1 id='programs'>Programs</h1><h2 id='get-all-programs'>Get all Programs</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
     <span class="s">"https://stg.api.suggestic.com/programs"</span><span class="p">,</span>
     <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"Token 2444bb179390b9dcfadb7f2555682074f885c805"</span><span class="p">}</span>

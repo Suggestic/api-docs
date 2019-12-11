@@ -69,10 +69,9 @@ curl "https://stg.api.suggestic.com/users" \
 
 ```json
 {
-  "name": [
-    "Pedro"
-  ],
+  "name": "Pedro",
   "email": "pedro@corp.com",
+  "restrictions": [],
   "extra_data": "{}"
 }
 ```
@@ -99,7 +98,7 @@ import requests
 
 response = requests.get(
     "https://stg.api.suggestic.com/users",
-    headers={"Authorization": "Token 2444bb179390b9dcfadb7f2555682074f885c805 "}
+    headers={"Authorization": "Token 2444bb179390b9dcfadb7f2555682074f885c805"}
 )
 ```
 
@@ -138,6 +137,11 @@ This endpoint retrieves all users from my organization.
 
 ```python
 import requests
+response = requests.get(
+    "https://stg.api.suggestic.com/users/d6044ee8-b372-45e0-b9dc-d21aad4fface",
+    headers={"Authorization": "Token 2444bb179390b9dcfadb7f2555682074f885c805"},
+)
+print(response.json()
 ```
 
 ```shell
@@ -173,11 +177,10 @@ ID | The ID of the user to retrive
 ## Update user
 ```python
 import requests
-
 user = {
   "restrictions": ["avoid-almonds"]
 }
-response = requests.post(
+response = requests.patch(
     "https://stg.api.suggestic.com/users/d6044ee8-b372-45e0-b9dc-d21aad4fface",
     headers={"Authorization": "Token 2444bb179390b9dcfadb7f2555682074f885c805"},
     data=user
@@ -224,7 +227,6 @@ Parameter | Type | Required | Description
 
 ```python
 import requests
-
 response = requests.get(
     "https://stg.api.suggestic.com/programs",
     headers={"Authorization": "Token 2444bb179390b9dcfadb7f2555682074f885c805"}

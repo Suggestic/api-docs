@@ -59,10 +59,11 @@ print(response.json())
 ```
 
 ```shell
-curl "https://stg.api.suggestic.com/users" \
-    -H "Authorization: Token 2444bb179390b9dcfadb7f2555682074f885c805" \
-    -d 'email=pedro@corp.com' \
-    -d 'name=Pedrro'
+curl -X POST \
+  "https://stg.api.suggestic.com/users" \
+  -H "Authorization: Token 2444bb179390b9dcfadb7f2555682074f885c805" \
+  -d 'email=pedro@corp.com' \
+  -d 'name=Pedrro'
 ```
 
 > The above command returns JSON structured like this:
@@ -189,10 +190,12 @@ print(response.json())
 ```
 
 ```shell
-curl "https://stg.api.suggestic.com/users/d6044ee8-b372-45e0-b9dc-d21aad4fface" \
-    -H "Authorization: Token 2444bb179390b9dcfadb7f2555682074f885c805" \
-    -d 'email=pedro@corp.com' \
-    -d 'name=Pedrro'
+curl -X PATCH \
+  https://stg.api.suggestic.com/users/d6044ee8-b372-45e0-b9dc-d21aad4fface \
+  -H 'Authorization: Token 2444bb179390b9dcfadb7f2555682074f885c805' \
+  -d '{
+	"restrictions": ["avoid-almonds"]
+}'
 ```
 
 > The above command returns JSON structured like this:

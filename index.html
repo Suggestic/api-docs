@@ -238,6 +238,9 @@
                   <li>
                     <a href="#get-a-specific-user" class="toc-h2 toc-link" data-title="Get a Specific User">Get a Specific User</a>
                   </li>
+                  <li>
+                    <a href="#update-user" class="toc-h2 toc-link" data-title="Update user">Update user</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -424,6 +427,75 @@ You must replace <code>Token {API-KEY}</code> with your personal API key.
 <td>The ID of the user to retrive</td>
 </tr>
 </tbody></table>
+<h2 id='update-user'>Update user</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">user</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">"restrictions"</span><span class="p">:</span> <span class="p">[</span><span class="s">"avoid-almonds"</span><span class="p">]</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+    <span class="s">"https://stg.api.suggestic.com/users/d6044ee8-b372-45e0-b9dc-d21aad4fface"</span><span class="p">,</span>
+    <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"Token 2444bb179390b9dcfadb7f2555682074f885c805"</span><span class="p">},</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">user</span>
+<span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://stg.api.suggestic.com/users/d6044ee8-b372-45e0-b9dc-d21aad4fface"</span> <span class="se">\</span>
+    -H <span class="s2">"Authorization: Token 2444bb179390b9dcfadb7f2555682074f885c805"</span> <span class="se">\</span>
+    -d <span class="s1">'email=pedro@corp.com'</span> <span class="se">\</span>
+    -d <span class="s1">'name=Pedrro'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedro"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pedro@corp.com"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"extra_data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{}"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"restrictions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"avoid-almonds"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint updates user properties, like adding removing restrictions, updating user program etc.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>POST https://stg.api.suggestic.com/users/{user-id}</code></p>
+<h3 id='arguments-2'>Arguments</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td>required</td>
+<td>The user Name.</td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td>string</td>
+<td>required</td>
+<td>The user Email.</td>
+</tr>
+<tr>
+<td><code>program</code></td>
+<td>string</td>
+<td>required</td>
+<td>rogram ID, this will be the user initial program.</td>
+</tr>
+<tr>
+<td><code>restrictions</code></td>
+<td>list</td>
+<td>optional</td>
+<td>Restriction slugs, user restrictions.</td>
+</tr>
+<tr>
+<td><code>extra_data</code></td>
+<td>json string</td>
+<td>optional</td>
+<td>Extra user related meta data.</td>
+</tr>
+</tbody></table>
 <h1 id='programs'>Programs</h1><h2 id='get-all-programs'>Get all Programs</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
@@ -479,7 +551,7 @@ The above command returns JSON structured like this: </p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves all programs.</p>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request-5'>HTTP Request</h3>
 <p><code>GET https://stg.api.suggestic.com/programs</code></p>
 <h2 id='get-a-specific-program'>Get a Specific Program</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
@@ -514,7 +586,7 @@ The above command returns JSON structured like this: </p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrives a especific program</p>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-6'>HTTP Request</h3>
 <p><code>GET https://stg.api.suggestic.com/programs/{ID}</code></p>
 <h1 id='restriction'>Restriction</h1><h2 id='get-all-restrictions'>Get all Restrictions</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
@@ -561,7 +633,7 @@ The above command returns JSON structured like this: </p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves all available restrictions.</p>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request-7'>HTTP Request</h3>
 <p><code>GET https://stg.api.suggestic.com/restrictions</code></p>
 <h1 id='errors'>Errors</h1>
 <p>The Suggestic API uses the following error codes:</p>
